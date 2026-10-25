@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run exoc
-        run: echo "is it runing"
+        run: echo "is it runing on ${{ inputs.environment }}"
