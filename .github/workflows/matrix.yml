@@ -1,5 +1,5 @@
 name: Matrix and Artifacts
- on:
+  on:
    push: 
     branches: [ "main" ]
 jobs:
