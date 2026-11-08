@@ -1,7 +1,7 @@
 name: Matrix and Artifacts
  on:
-  push: 
-   branches: [ "main" ]
+   push: 
+    branches: [ "main" ]
 jobs:
    matrix-test:
     runs-on: ubuntu-latest
@@ -24,5 +24,5 @@ jobs:
      - name: upload results
        uses: actions/upload-artifact@v4
        with:
-        name: test-results-${{ matrix.python-version }}
-        path: reports/
+         name: test-results-${{ matrix.python-version }}
+         path: reports/
