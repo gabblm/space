@@ -1,0 +1,28 @@
+name: Matrix and Artifacts
+ on:
+  push: 
+   branches: [ "main" ]
+jobs:
+   matrix-test:
+    runs-on: ubuntu-latest
+     strategy:
+      matrix:
+       python-version: ['3.9', '3.10', '3.11']
+    
+    steps:
+     - name: checkout
+       uses: actions/checkout@v4
+       
+     - name: setup python-version
+       uses: actions/setup-python@v5
+       with:
+        python-version: ${{ matrix.python-version }}
+        
+     - name: test
+       run: pytest
+     
+     - name: upload results
+       uses: actions/upload-artifact@v4
+       with:
+        name: test-results-${{ matrix.python-version }}
+        path: reports/
